@@ -26,5 +26,8 @@ namespace CXCVCapitalIntrant.Model
         }
     
         public virtual DbSet<t_userinfo_base> t_userinfo_base { get; set; }
+        public virtual DbSet<t_user_edu> t_user_edu { get; set; }
+        public virtual DbSet<t_user_relation> t_user_relation { get; set; }
+        public virtual DbSet<t_user_resume> t_user_resume { get; set; }
     }
 }

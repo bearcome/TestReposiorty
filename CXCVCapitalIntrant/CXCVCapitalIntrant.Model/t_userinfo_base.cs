@@ -57,9 +57,9 @@ namespace CXCVCapitalIntrant.Model
         public Nullable<int> politicalid { get; set; }
         public Nullable<System.DateTime> inpartydate { get; set; }
         public Nullable<System.DateTime> lastlogdate { get; set; }
-        public Nullable<int> statusid { get; set; }
-        public Nullable<int> isdeleted { get; set; }
+        public int statusid { get; set; }
+        public int isdeleted { get; set; }
         public Nullable<System.DateTime> updatetime { get; set; }
-        public Nullable<int> updateuserid { get; set; }
+        public int updateuserid { get; set; }
     }
 }

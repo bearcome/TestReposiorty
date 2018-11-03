@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -18,10 +19,10 @@ namespace CXCVCapitalIntrant.IDAL
         Task<bool> DeleteEntityAsync(T obj);
         int DeleteList(List<T> list);
         Task<int> DeleteListAsync(List<T> list);
-        List<T> ExecuteSQL(string sql, params SqlParameter[] parms);
-        Task<List<T>> ExecuteSQLAsync(string sql, params SqlParameter[] parms);
-        int ExecuteSqlCommand(string sql, params SqlParameter[] parms);
-        Task<int> ExecuteSqlCommandAsync(string sql, params SqlParameter[] parms);
+        List<T> ExecuteSQL(string sql, params MySqlParameter[] parms);
+        Task<List<T>> ExecuteSQLAsync(string sql, params MySqlParameter[] parms);
+        int ExecuteSqlCommand(string sql, params MySqlParameter[] parms);
+        Task<int> ExecuteSqlCommandAsync(string sql, params MySqlParameter[] parms);
         int GetCount(Expression<Func<T, bool>> whereLamda);
         List<T> GetList(Expression<Func<T, bool>> whereLamda, int count);
         Task<int> GetCountAsync(Expression<Func<T, bool>> whereLamda);

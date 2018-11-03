@@ -1,6 +1,7 @@
 ﻿using CXCVCapitalIntrant.DAL;
 using CXCVCapitalIntrant.IBLL;
 using CXCVCapitalIntrant.IDAL;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -74,22 +75,22 @@ namespace CXCVCapitalIntrant.BLL
             await _baseDAL.ExecuteSqlCommandAsync(sql);
         }
 
-        public List<T> GetAllListBySql(string sqlStr, params SqlParameter[] parameters)
+        public List<T> GetAllListBySql(string sqlStr, params MySqlParameter[] parameters)
         {
             return _baseDAL.ExecuteSQL(sqlStr, parameters);
         }
 
-        public Task<List<T>> GetAllListBySqlAsync(string sqlStr, params SqlParameter[] parameters)
+        public Task<List<T>> GetAllListBySqlAsync(string sqlStr, params MySqlParameter[] parameters)
         {
             return _baseDAL.ExecuteSQLAsync(sqlStr, parameters);
         }
 
-        public void ExecuteSqlCommand(string sqlStr, params SqlParameter[] parameters)
+        public void ExecuteSqlCommand(string sqlStr, params MySqlParameter[] parameters)
         {
             _baseDAL.ExecuteSqlCommand(sqlStr, parameters);
         }
 
-        public async Task ExecuteSqlCommandAsync(string sqlStr, params SqlParameter[] parameters)
+        public async Task ExecuteSqlCommandAsync(string sqlStr, params MySqlParameter[] parameters)
         {
             await _baseDAL.ExecuteSqlCommandAsync(sqlStr, parameters);
         }

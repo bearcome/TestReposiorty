@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Data\SqlClient\MySqlParameter.cs" />
     <Compile Include="Test1.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using CXCVCapitalIntrant.IDAL;
 using CXCVCapitalIntrant.Model;
 using CXCVCapitalIntrant.Common.Extensions;
+using MySql.Data.MySqlClient;
 
 namespace CXCVCapitalIntrant.DAL
 {
@@ -122,12 +123,12 @@ namespace CXCVCapitalIntrant.DAL
             _dbContext.Configuration.ValidateOnSaveEnabled = false;
         }
 
-        public List<T> ExecuteSQL(string sql, params SqlParameter[] parms)
+        public List<T> ExecuteSQL(string sql, params MySqlParameter[] parms)
         {
             return parms != null ? _dbContext.Database.SqlQuery<T>(sql, parms).ToList() : _dbContext.Database.SqlQuery<T>(sql).ToList();
         }
 
-        public async Task<List<T>> ExecuteSQLAsync(string sql, params SqlParameter[] parms)
+        public async Task<List<T>> ExecuteSQLAsync(string sql, params MySqlParameter[] parms)
         {
             return await (parms != null ? _dbContext.Database.SqlQuery<T>(sql, parms) : _dbContext.Database.SqlQuery<T>(sql)).ToListAsync();
         }
@@ -138,12 +139,12 @@ namespace CXCVCapitalIntrant.DAL
         /// <param name="sql"></param>
         /// <param name="parms"></param>
         /// <returns></returns>
-        public int ExecuteSqlCommand(string sql, params SqlParameter[] parms)
+        public int ExecuteSqlCommand(string sql, params MySqlParameter[] parms)
         {
             return _dbContext.Database.ExecuteSqlCommand(sql, parms);
         }
 
-        public async Task<int> ExecuteSqlCommandAsync(string sql, params SqlParameter[] parms)
+        public async Task<int> ExecuteSqlCommandAsync(string sql, params MySqlParameter[] parms)
         {
             return await (parms != null ? _dbContext.Database.ExecuteSqlCommandAsync(sql, parms) : _dbContext.Database.ExecuteSqlCommandAsync(sql));
         }

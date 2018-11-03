@@ -1,10 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CXCVCapitalIntrant.IBLL
@@ -33,13 +30,13 @@ namespace CXCVCapitalIntrant.IBLL
 
         Task ExecuteDeleteByIdWithSqlAsync(string destinationTableName, string columnName, int id);
 
-        List<T> GetAllListBySql(string sqlStr, params SqlParameter[] parameters);
+        List<T> GetAllListBySql(string sqlStr, params MySqlParameter[] parameters);
 
-        Task<List<T>> GetAllListBySqlAsync(string sqlStr, params SqlParameter[] parameters);
+        Task<List<T>> GetAllListBySqlAsync(string sqlStr, params MySqlParameter[] parameters);
 
-        void ExecuteSqlCommand(string sqlStr, params SqlParameter[] parameters);
+        void ExecuteSqlCommand(string sqlStr, params MySqlParameter[] parameters);
 
-        Task ExecuteSqlCommandAsync(string sqlStr, params SqlParameter[] parameters);
+        Task ExecuteSqlCommandAsync(string sqlStr, params MySqlParameter[] parameters);
 
         int GetCount(Expression<Func<T, bool>> whereLamda);
 

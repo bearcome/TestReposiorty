@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Create</h2>
+<div id="userinfoform">
+    <input type="text" name="username" />
+    <input type="file" id="userselfpic" />
+    <button onclick="savedata()">
+        提交
+    </button>
+</div>
+    
+<script>
+    var savedata = function () {
+        var formdata = new FormData();
+        formdata.append("username", $('#username').val());
+        formdata.append("userselfpic", $('#userselfpic')[0].files[0]);
+        $.ajax({
+            url: '/UserInfo/CreateSave',
+            type: 'POST',
+            cache: false,
+            data: formdata,
+            processData: false,
+            contentType: false,
+            async: false
+        }).done(function (res) { alert("success") }).fail(function (res) { alert("fail") });
+    }
+</script>

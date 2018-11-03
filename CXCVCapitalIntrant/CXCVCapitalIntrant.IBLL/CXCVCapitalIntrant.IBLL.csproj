@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseBLL.cs" />
+    <Compile Include="IUserEduBLL.cs" />
+    <Compile Include="IUserInfoBaseBLL.cs" />
+    <Compile Include="IUserRelationBLL.cs" />
+    <Compile Include="IUserResumeBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +60,10 @@
       <Project>{8d05fff6-1d9b-44fa-b7b5-91836e64d363}</Project>
       <Name>CXCVCapitalIntrant.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

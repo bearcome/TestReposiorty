@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace CXCVCapitalIntrant.Web.Tests
 {
@@ -70,6 +71,12 @@ namespace CXCVCapitalIntrant.Web.Tests
             UserInfoBaseBLL userinfobll = new UserInfoBaseBLL();
             var model = userinfobll.GetEntity(o => o.pkid == 1);
             Assert.AreNotEqual(null, model);
+        }
+        [TestMethod]
+        public void testSql() {
+            //MySql.Data.MySqlClient.MySqlParameter
+            UserInfoBaseBLL userinfobll = new UserInfoBaseBLL();
+            userinfobll.ExecuteSqlCommand("update t_userinfo_base set usernameen = '{usernameen}' ", new MySqlParameter("usernameen", MySqlDbType.VarChar));
         }
     }
 }

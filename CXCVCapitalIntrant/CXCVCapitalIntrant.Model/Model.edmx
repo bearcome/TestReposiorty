@@ -4,7 +4,61 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CVCXModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CVCXModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_user_edu">
+          <Key>
+            <PropertyRef Name="pkid" />
+          </Key>
+          <Property Name="pkid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="university" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="int" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="education" Type="int" />
+          <Property Name="major" Type="varchar" MaxLength="255" />
+          <Property Name="desc" Type="text" />
+          <Property Name="updatetime" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="updateuserid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_user_relation">
+          <Key>
+            <PropertyRef Name="pkid" />
+          </Key>
+          <Property Name="pkid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="gender" Type="varchar" MaxLength="255" />
+          <Property Name="nationalityid" Type="int" />
+          <Property Name="nation" Type="varchar" MaxLength="255" />
+          <Property Name="relationship" Type="int" Nullable="false" />
+          <Property Name="location" Type="int" />
+          <Property Name="company" Type="varchar" MaxLength="255" />
+          <Property Name="occupation" Type="varchar" MaxLength="255" />
+          <Property Name="post" Type="varchar" MaxLength="255" />
+          <Property Name="isparty" Type="varchar" MaxLength="255" />
+          <Property Name="desc" Type="text" />
+        </EntityType>
+        <EntityType Name="t_user_resume">
+          <Key>
+            <PropertyRef Name="okid" />
+          </Key>
+          <Property Name="okid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="belcompany" Type="varchar" MaxLength="255" />
+          <Property Name="startdate" Type="date" Nullable="false" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="lasttitle" Type="varchar" MaxLength="255" />
+          <Property Name="lastjobpost" Type="varchar" MaxLength="255" />
+          <Property Name="lastlevel" Type="varchar" MaxLength="255" />
+          <Property Name="salary" Type="int" />
+          <Property Name="reporttoleader" Type="varchar" MaxLength="255" />
+          <Property Name="leadertitle" Type="varchar" MaxLength="255" />
+          <Property Name="leaderlevel" Type="varchar" MaxLength="255" />
+          <Property Name="dutydesc" Type="text" />
+          <Property Name="updatetime" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="updateuserid" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="t_userinfo_base">
           <Key>
             <PropertyRef Name="pkid" />
@@ -52,25 +106,33 @@
           <Property Name="politicalid" Type="int" />
           <Property Name="inpartydate" Type="date" />
           <Property Name="lastlogdate" Type="datetime" Precision="0" />
-          <Property Name="statusid" Type="int" />
-          <Property Name="isdeleted" Type="int" />
+          <Property Name="statusid" Type="int" Nullable="false" />
+          <Property Name="isdeleted" Type="int" Nullable="false" />
           <Property Name="updatetime" Type="datetime" Precision="0" />
-          <Property Name="updateuserid" Type="int" />
+          <Property Name="updateuserid" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CVCXModelStoreContainer">
+          <EntitySet Name="t_user_edu" EntityType="Self.t_user_edu" Schema="cvcxcapital_sysdata" store:Type="Tables" />
+          <EntitySet Name="t_user_relation" EntityType="Self.t_user_relation" Schema="cvcxcapital_sysdata" store:Type="Tables" />
+          <EntitySet Name="t_user_resume" EntityType="Self.t_user_resume" Schema="cvcxcapital_sysdata" store:Type="Tables" />
           <EntitySet Name="t_userinfo_base" EntityType="Self.t_userinfo_base" Schema="cvcxcapital_sysdata" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CVCXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="cvcxcapital_sysdataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_userinfo_base" EntityType="CVCXModel.t_userinfo_base" />
+          <EntitySet Name="t_user_edu" EntityType="CVCXModel.t_user_edu" />
+          <EntitySet Name="t_user_relation" EntityType="CVCXModel.t_user_relation" />
+          <EntitySet Name="t_user_resume" EntityType="CVCXModel.t_user_resume" />
+        </EntityContainer>
         <EntityType Name="t_userinfo_base">
           <Key>
             <PropertyRef Name="pkid" />
           </Key>
           <Property Name="pkid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="usercode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usercode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="pycodefull" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="pycodeshort" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="usernameen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -112,14 +174,65 @@
           <Property Name="politicalid" Type="Int32" />
           <Property Name="inpartydate" Type="DateTime" />
           <Property Name="lastlogdate" Type="DateTime" />
-          <Property Name="statusid" Type="Int32" />
-          <Property Name="isdeleted" Type="Int32" />
+          <Property Name="statusid" Type="Int32" Nullable="false" />
+          <Property Name="isdeleted" Type="Int32" Nullable="false" />
           <Property Name="updatetime" Type="DateTime" />
-          <Property Name="updateuserid" Type="Int32" />
+          <Property Name="updateuserid" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="cvcxcapital_sysdataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="t_userinfo_base" EntityType="Self.t_userinfo_base" />
-        </EntityContainer>
+        <EntityType Name="t_user_edu">
+          <Key>
+            <PropertyRef Name="pkid" />
+          </Key>
+          <Property Name="pkid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="university" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="Int32" />
+          <Property Name="startdate" Type="DateTime" />
+          <Property Name="enddate" Type="DateTime" />
+          <Property Name="education" Type="Int32" />
+          <Property Name="major" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="desc" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="updatetime" Type="DateTime" Nullable="false" />
+          <Property Name="updateuserid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_user_relation">
+          <Key>
+            <PropertyRef Name="pkid" />
+          </Key>
+          <Property Name="pkid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nationalityid" Type="Int32" />
+          <Property Name="nation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="relationship" Type="Int32" Nullable="false" />
+          <Property Name="location" Type="Int32" />
+          <Property Name="company" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="occupation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="post" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="isparty" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="desc" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_user_resume">
+          <Key>
+            <PropertyRef Name="okid" />
+          </Key>
+          <Property Name="okid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="belcompany" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="startdate" Type="DateTime" Nullable="false" />
+          <Property Name="enddate" Type="DateTime" />
+          <Property Name="lasttitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastjobpost" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastlevel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Int32" />
+          <Property Name="reporttoleader" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="leadertitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="leaderlevel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dutydesc" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="updatetime" Type="DateTime" Nullable="false" />
+          <Property Name="updateuserid" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -129,53 +242,110 @@
           <EntitySetMapping Name="t_userinfo_base">
             <EntityTypeMapping TypeName="CVCXModel.t_userinfo_base">
               <MappingFragment StoreEntitySet="t_userinfo_base">
-                <ScalarProperty Name="pkid" ColumnName="pkid" />
-                <ScalarProperty Name="usercode" ColumnName="usercode" />
-                <ScalarProperty Name="pycodefull" ColumnName="pycodefull" />
-                <ScalarProperty Name="pycodeshort" ColumnName="pycodeshort" />
-                <ScalarProperty Name="usernameen" ColumnName="usernameen" />
-                <ScalarProperty Name="nickname" ColumnName="nickname" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="birthday" ColumnName="birthday" />
-                <ScalarProperty Name="birthcountry" ColumnName="birthcountry" />
-                <ScalarProperty Name="birthcity" ColumnName="birthcity" />
-                <ScalarProperty Name="nationalityid" ColumnName="nationalityid" />
-                <ScalarProperty Name="lastrecord" ColumnName="lastrecord" />
-                <ScalarProperty Name="lastschool" ColumnName="lastschool" />
-                <ScalarProperty Name="lastspeciality" ColumnName="lastspeciality" />
-                <ScalarProperty Name="lastschooldate" ColumnName="lastschooldate" />
-                <ScalarProperty Name="checkindate" ColumnName="checkindate" />
-                <ScalarProperty Name="checkoutdate" ColumnName="checkoutdate" />
-                <ScalarProperty Name="userhrpic" ColumnName="userhrpic" />
-                <ScalarProperty Name="userhrpictype" ColumnName="userhrpictype" />
-                <ScalarProperty Name="userselfpic" ColumnName="userselfpic" />
-                <ScalarProperty Name="userselfpictype" ColumnName="userselfpictype" />
-                <ScalarProperty Name="lasttitle" ColumnName="lasttitle" />
-                <ScalarProperty Name="lastjobpost" ColumnName="lastjobpost" />
-                <ScalarProperty Name="lastlevel" ColumnName="lastlevel" />
-                <ScalarProperty Name="costcenterid" ColumnName="costcenterid" />
-                <ScalarProperty Name="basecityid" ColumnName="basecityid" />
-                <ScalarProperty Name="workcityid" ColumnName="workcityid" />
-                <ScalarProperty Name="towerid" ColumnName="towerid" />
-                <ScalarProperty Name="officenum" ColumnName="officenum" />
-                <ScalarProperty Name="groupid" ColumnName="groupid" />
-                <ScalarProperty Name="subcomid" ColumnName="subcomid" />
-                <ScalarProperty Name="departid" ColumnName="departid" />
-                <ScalarProperty Name="areaid" ColumnName="areaid" />
-                <ScalarProperty Name="secuserid1" ColumnName="secuserid1" />
-                <ScalarProperty Name="secuserid2" ColumnName="secuserid2" />
-                <ScalarProperty Name="phonenums" ColumnName="phonenums" />
-                <ScalarProperty Name="callnums" ColumnName="callnums" />
-                <ScalarProperty Name="faxnums" ColumnName="faxnums" />
-                <ScalarProperty Name="emailcom" ColumnName="emailcom" />
-                <ScalarProperty Name="emailself" ColumnName="emailself" />
-                <ScalarProperty Name="politicalid" ColumnName="politicalid" />
-                <ScalarProperty Name="inpartydate" ColumnName="inpartydate" />
-                <ScalarProperty Name="lastlogdate" ColumnName="lastlogdate" />
-                <ScalarProperty Name="statusid" ColumnName="statusid" />
-                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
-                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
                 <ScalarProperty Name="updateuserid" ColumnName="updateuserid" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="statusid" ColumnName="statusid" />
+                <ScalarProperty Name="lastlogdate" ColumnName="lastlogdate" />
+                <ScalarProperty Name="inpartydate" ColumnName="inpartydate" />
+                <ScalarProperty Name="politicalid" ColumnName="politicalid" />
+                <ScalarProperty Name="emailself" ColumnName="emailself" />
+                <ScalarProperty Name="emailcom" ColumnName="emailcom" />
+                <ScalarProperty Name="faxnums" ColumnName="faxnums" />
+                <ScalarProperty Name="callnums" ColumnName="callnums" />
+                <ScalarProperty Name="phonenums" ColumnName="phonenums" />
+                <ScalarProperty Name="secuserid2" ColumnName="secuserid2" />
+                <ScalarProperty Name="secuserid1" ColumnName="secuserid1" />
+                <ScalarProperty Name="areaid" ColumnName="areaid" />
+                <ScalarProperty Name="departid" ColumnName="departid" />
+                <ScalarProperty Name="subcomid" ColumnName="subcomid" />
+                <ScalarProperty Name="groupid" ColumnName="groupid" />
+                <ScalarProperty Name="officenum" ColumnName="officenum" />
+                <ScalarProperty Name="towerid" ColumnName="towerid" />
+                <ScalarProperty Name="workcityid" ColumnName="workcityid" />
+                <ScalarProperty Name="basecityid" ColumnName="basecityid" />
+                <ScalarProperty Name="costcenterid" ColumnName="costcenterid" />
+                <ScalarProperty Name="lastlevel" ColumnName="lastlevel" />
+                <ScalarProperty Name="lastjobpost" ColumnName="lastjobpost" />
+                <ScalarProperty Name="lasttitle" ColumnName="lasttitle" />
+                <ScalarProperty Name="userselfpictype" ColumnName="userselfpictype" />
+                <ScalarProperty Name="userselfpic" ColumnName="userselfpic" />
+                <ScalarProperty Name="userhrpictype" ColumnName="userhrpictype" />
+                <ScalarProperty Name="userhrpic" ColumnName="userhrpic" />
+                <ScalarProperty Name="checkoutdate" ColumnName="checkoutdate" />
+                <ScalarProperty Name="checkindate" ColumnName="checkindate" />
+                <ScalarProperty Name="lastschooldate" ColumnName="lastschooldate" />
+                <ScalarProperty Name="lastspeciality" ColumnName="lastspeciality" />
+                <ScalarProperty Name="lastschool" ColumnName="lastschool" />
+                <ScalarProperty Name="lastrecord" ColumnName="lastrecord" />
+                <ScalarProperty Name="nationalityid" ColumnName="nationalityid" />
+                <ScalarProperty Name="birthcity" ColumnName="birthcity" />
+                <ScalarProperty Name="birthcountry" ColumnName="birthcountry" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="usernameen" ColumnName="usernameen" />
+                <ScalarProperty Name="pycodeshort" ColumnName="pycodeshort" />
+                <ScalarProperty Name="pycodefull" ColumnName="pycodefull" />
+                <ScalarProperty Name="usercode" ColumnName="usercode" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_user_edu">
+            <EntityTypeMapping TypeName="CVCXModel.t_user_edu">
+              <MappingFragment StoreEntitySet="t_user_edu">
+                <ScalarProperty Name="updateuserid" ColumnName="updateuserid" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="education" ColumnName="education" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="university" ColumnName="university" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_user_relation">
+            <EntityTypeMapping TypeName="CVCXModel.t_user_relation">
+              <MappingFragment StoreEntitySet="t_user_relation">
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="isparty" ColumnName="isparty" />
+                <ScalarProperty Name="post" ColumnName="post" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="relationship" ColumnName="relationship" />
+                <ScalarProperty Name="nation" ColumnName="nation" />
+                <ScalarProperty Name="nationalityid" ColumnName="nationalityid" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_user_resume">
+            <EntityTypeMapping TypeName="CVCXModel.t_user_resume">
+              <MappingFragment StoreEntitySet="t_user_resume">
+                <ScalarProperty Name="updateuserid" ColumnName="updateuserid" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="dutydesc" ColumnName="dutydesc" />
+                <ScalarProperty Name="leaderlevel" ColumnName="leaderlevel" />
+                <ScalarProperty Name="leadertitle" ColumnName="leadertitle" />
+                <ScalarProperty Name="reporttoleader" ColumnName="reporttoleader" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="lastlevel" ColumnName="lastlevel" />
+                <ScalarProperty Name="lastjobpost" ColumnName="lastjobpost" />
+                <ScalarProperty Name="lasttitle" ColumnName="lasttitle" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="belcompany" ColumnName="belcompany" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="okid" ColumnName="okid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
