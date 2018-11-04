@@ -29,5 +29,12 @@ namespace CXCVCapitalIntrant.Model
         public virtual DbSet<t_user_edu> t_user_edu { get; set; }
         public virtual DbSet<t_user_relation> t_user_relation { get; set; }
         public virtual DbSet<t_user_resume> t_user_resume { get; set; }
+        public virtual DbSet<t_user_branchchange> t_user_branchchange { get; set; }
+        public virtual DbSet<t_user_deptchange> t_user_deptchange { get; set; }
+        public virtual DbSet<t_user_levelchange> t_user_levelchange { get; set; }
+        public virtual DbSet<t_user_picchange> t_user_picchange { get; set; }
+        public virtual DbSet<t_user_postchange> t_user_postchange { get; set; }
+        public virtual DbSet<t_user_secretarychange> t_user_secretarychange { get; set; }
+        public virtual DbSet<t_user_titlechange> t_user_titlechange { get; set; }
     }
 }

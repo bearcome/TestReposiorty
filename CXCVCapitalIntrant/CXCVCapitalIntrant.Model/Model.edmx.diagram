@@ -4,11 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="988e375d4da54bd8a4896cee57c02f37" Name="Diagram1" ZoomLevel="91">
+      <Diagram DiagramId="988e375d4da54bd8a4896cee57c02f37" Name="Diagram1" ZoomLevel="62">
         <EntityTypeShape EntityType="CVCXModel.t_userinfo_base" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="CVCXModel.t_user_edu" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="CVCXModel.t_user_relation" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="CVCXModel.t_user_resume" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_branchchange" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_deptchange" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_levelchange" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_picchange" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_postchange" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_secretarychange" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CVCXModel.t_user_titlechange" Width="1.5" PointX="9.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

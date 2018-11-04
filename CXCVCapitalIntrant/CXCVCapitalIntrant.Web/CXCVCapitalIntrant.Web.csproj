@@ -208,10 +208,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\UserDeptChangeController.cs" />
     <Compile Include="Controllers\UserEducationController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\UserLevelChangeController.cs" />
+    <Compile Include="Controllers\UserPicChangeController.cs" />
+    <Compile Include="Controllers\UserPostChangeController.cs" />
     <Compile Include="Controllers\UserRelationController.cs" />
     <Compile Include="Controllers\UserResumeController.cs" />
+    <Compile Include="Controllers\UserTitleChangeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,9 +279,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UserDeptChange\" />
     <Folder Include="Views\UserEducation\" />
+    <Folder Include="Views\UserLevelChange\" />
+    <Folder Include="Views\UserPicChange\" />
+    <Folder Include="Views\UserPostChange\" />
     <Folder Include="Views\UserRelation\" />
     <Folder Include="Views\UserResume\" />
+    <Folder Include="Views\UserTitleChange\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

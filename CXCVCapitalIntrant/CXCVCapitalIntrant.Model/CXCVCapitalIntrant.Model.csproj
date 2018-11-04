@@ -76,13 +76,34 @@
     <Compile Include="t_userinfo_base.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="t_user_branchchange.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_user_deptchange.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="t_user_edu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_user_levelchange.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_user_picchange.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_user_postchange.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="t_user_relation.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="t_user_resume.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_user_secretarychange.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_user_titlechange.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

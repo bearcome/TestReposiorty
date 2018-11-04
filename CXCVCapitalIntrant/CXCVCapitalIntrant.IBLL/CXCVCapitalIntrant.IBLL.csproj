@@ -47,6 +47,7 @@
     <Compile Include="IBaseBLL.cs" />
     <Compile Include="IUserEduBLL.cs" />
     <Compile Include="IUserInfoBaseBLL.cs" />
+    <Compile Include="IUserLevelChangeBLL.cs" />
     <Compile Include="IUserRelationBLL.cs" />
     <Compile Include="IUserResumeBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
